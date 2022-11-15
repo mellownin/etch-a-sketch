@@ -30,7 +30,25 @@ div.page-content {
     display: flex;
     min-height: 100px;
     border: 2px solid blue;
+    margin: 0 50px;
+    justify-content: center;
 }
+
+div.page-content div.control-panel {
+    display: flex;
+    height: 800px;
+    width: 200px;
+    border: 1px solid gray;
+    margin-right: 10px;
+}
+
+div.page-content div.sketch-grid {
+    display: flex;
+    height: 800px;
+    width: 800px;
+    border: 1px solid gray;
+}
+
 
 div.page-footer {
     display: flex;
