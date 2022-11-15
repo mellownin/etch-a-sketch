@@ -1,0 +1,39 @@
+html, body {height: 100%;
+margin: 0;
+padding: 0;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+div.page-container {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    flex: 1 1 auto;
+}
+
+div.page-header {
+    display: flex;
+    height: 80px;
+    border: 2px solid red;
+    margin-bottom: 10px;
+}
+
+div.page-content {
+    display: flex;
+    min-height: 100px;
+    border: 2px solid blue;
+}
+
+div.page-footer {
+    display: flex;
+    margin-top: auto;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border: 2px solid green;
+}
+
+h1, h2, h3, p {
+    margin: 0px;
+    padding: 0px;
+}
