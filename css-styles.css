@@ -44,11 +44,11 @@ div.page-content div.control-panel {
 
 div.page-content div.sketch-grid {
     display: flex;
+    flex-flow: row wrap;
     height: 800px;
     width: 800px;
     border: 1px solid gray;
 }
-
 
 div.page-footer {
     display: flex;
