@@ -4,6 +4,11 @@ padding: 0;
 font-family: Arial, Helvetica, sans-serif;
 }
 
+h1, h2, h3, p {
+    margin: 0px;
+    padding: 0px;
+}
+
 div.page-container {
     display: flex;
     flex-flow: column;
@@ -14,9 +19,12 @@ div.page-container {
 div.page-header {
     display: flex;
     height: 80px;
+    align-items: center;
+    justify-content: center;
     border: 2px solid red;
     margin-bottom: 10px;
 }
+
 
 div.page-content {
     display: flex;
@@ -33,7 +41,4 @@ div.page-footer {
     border: 2px solid green;
 }
 
-h1, h2, h3, p {
-    margin: 0px;
-    padding: 0px;
-}
+
