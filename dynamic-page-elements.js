@@ -65,3 +65,19 @@ function changeDim(e) {
 
 // Add event listener to the window...
 window.addEventListener('resize', changeDim);
+
+// Set hover effect so that div's with the .sketch-block class change color
+// when the mouse hovers over them
+
+// Establish constant that references all sketch blocks
+
+const sketchBlocks = document.querySelectorAll('.sketch-block');
+
+function colorBlock(e) {
+    // Add the colored class to the div so to allow the block to be colored black
+    this.classList.add('colored');
+    e.stopPropagation();
+    
+}
+
+sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('mouseenter',colorBlock));
