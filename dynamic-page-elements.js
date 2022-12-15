@@ -70,14 +70,18 @@ window.addEventListener('resize', changeDim);
 // when the mouse hovers over them
 
 // Establish constant that references all sketch blocks
-
 const sketchBlocks = document.querySelectorAll('.sketch-block');
+
+// Establish a variable to determine if mouse is down or up
+let mouseDown = false;
+document.body.onmousedown = function () {mouseDown = true;}
+document.body.onmouseup = function () {mouseDown = false;}
 
 function colorBlock(e) {
     // Add the colored class to the div so to allow the block to be colored black
-    this.classList.add('colored');
-    e.stopPropagation();
-    
+    if (mouseDown) {
+        this.classList.add('colored');
+    }
 }
 
 sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('mouseenter',colorBlock));
