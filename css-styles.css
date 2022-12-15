@@ -53,6 +53,10 @@ div.page-content div.sketch-grid {
     border: 1px solid gray;
 }
 
+div.page-content div.sketch-grid div.sketch-block.colored {
+    background-color: black;
+}
+
 div.page-footer {
     display: flex;
     margin-top: auto;
