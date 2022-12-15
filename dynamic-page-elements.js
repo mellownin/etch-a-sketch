@@ -77,11 +77,18 @@ let mouseDown = false;
 document.body.onmousedown = function () {mouseDown = true;}
 document.body.onmouseup = function () {mouseDown = false;}
 
-function colorBlock(e) {
+function dragColor(e) {
     // Add the colored class to the div so to allow the block to be colored black
     if (mouseDown) {
         this.classList.add('colored');
     }
 }
 
-sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('mouseenter',colorBlock));
+function clickColor(e) {
+    // Add the colored class to the div so to allow the block to be colored black
+    this.classList.add('colored');
+    
+}
+
+sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('mouseenter',dragColor));
+sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('click',clickColor));
