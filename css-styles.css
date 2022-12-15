@@ -2,8 +2,8 @@ html, body {height: 100%;
 margin: 0;
 padding: 0;
 font-family: Arial, Helvetica, sans-serif;
-min-width: 600px;
-min-height: 660px;
+min-width: 500px;
+min-height: 500px;
 }
 
 h1, h2, h3, p {
@@ -29,20 +29,37 @@ div.page-header {
 
 div.page-content {
     display: flex;
+    flex-flow: wrap-reverse;
     border: 2px solid blue;
     margin: 0 50px;
     justify-content: center;
     justify-self: center;
+    align-content: flex-end;
     min-height: 70%;
+    gap: 50px;
 }
 
 div.page-content div.control-panel {
     display: flex;
-    min-height: 500px;
-    min-width: 200px;
+    flex-flow: column wrap;
     border: 1px solid gray;
-    margin-right: 10px;
+    align-content: center;
+    justify-content: flex-start;
 }
+
+div.page-content div.control-panel button.control-button {
+    display: flex;
+    flex-flow: column wrap;
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 35px;
+    width: 200px;
+    align-content: center;
+    justify-content: center;
+    font: 18px;
+    margin-bottom: 10px;
+}
+
 
 div.page-content div.sketch-grid {
     display: flex;
