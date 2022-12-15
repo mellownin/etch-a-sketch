@@ -69,8 +69,9 @@ window.addEventListener('resize', changeDim);
 // Set hover effect so that div's with the .sketch-block class change color
 // when the mouse hovers over them
 
-// Establish constant that references all sketch blocks
+// Establish global constants that references all sketch blocks
 const sketchBlocks = document.querySelectorAll('.sketch-block');
+const controlButtons = document.querySelectorAll('button.control-button')
 
 // Establish a variable to determine if mouse is down or up
 let mouseDown = false;
@@ -92,3 +93,20 @@ function clickColor(e) {
 
 sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('mouseenter',dragColor));
 sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('click',clickColor));
+
+// Attach event listener to buttons
+
+// Add one to highlight when hovering over the button
+
+function buttonHover (e) {
+    // Colors button if it is being hovered over
+    this.classList.add('hover');
+}
+
+function revertButton(e) {
+    // Colors the button if it is no longer being hovered over
+    this.classList.remove('hover');
+}
+
+controlButtons.forEach(controlButton => controlButton.addEventListener('mouseenter',buttonHover));
+controlButtons.forEach(controlButton => controlButton.addEventListener('mouseleave',revertButton));

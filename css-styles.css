@@ -60,6 +60,12 @@ div.page-content div.control-panel button.control-button {
     margin-bottom: 10px;
 }
 
+div.page-content div.control-panel button.control-button.hover {
+    background-color: aqua;
+    transform: scale(1.02);
+}
+
+
 
 div.page-content div.sketch-grid {
     display: flex;
