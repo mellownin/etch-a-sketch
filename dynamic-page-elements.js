@@ -69,9 +69,10 @@ window.addEventListener('resize', changeDim);
 // Set hover effect so that div's with the .sketch-block class change color
 // when the mouse hovers over them
 
-// Establish global constants that references all sketch blocks
+// Establish global constants that references all sketch blocks, control buttons, and then individual buttons
 const sketchBlocks = document.querySelectorAll('.sketch-block');
-const controlButtons = document.querySelectorAll('button.control-button')
+const controlButtons = document.querySelectorAll('button.control-button');
+const resetButton = document.querySelector('button.control-button.reset');
 
 // Establish a variable to determine if mouse is down or up
 let mouseDown = false;
@@ -110,3 +111,10 @@ function revertButton(e) {
 
 controlButtons.forEach(controlButton => controlButton.addEventListener('mouseenter',buttonHover));
 controlButtons.forEach(controlButton => controlButton.addEventListener('mouseleave',revertButton));
+
+// Reset Grid Function / Button
+function resetGrid (e) {
+    sketchBlocks.forEach(sketchBlock => sketchBlock.classList.remove('colored'));
+}
+
+resetButton.addEventListener('click',resetGrid);
