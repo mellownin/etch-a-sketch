@@ -38,7 +38,7 @@ function initGridBlocks (resFactor) {
     }
 
 // Res Factor Set by Some Other Event (static for now)
-const resFactor = 100;
+const resFactor = 16;
 
 // Custom requirement always have a resolution of 1000 pixels...!
 initGridBlocks(resFactor);
