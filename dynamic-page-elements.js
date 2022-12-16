@@ -1,6 +1,44 @@
-// Create 16 x 16 grid of square divs (maybe increase fidelity?)
 
-// If this function can ingest a input from user (defaulting at 16 if no input then we can have a resolution scaler!)
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Global Variables & Genearl Behavior Functions (Things that are always running latently) Prior to
+// the first grid initialization
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Establish a variable to determine if mouse is down or up
+let mouseDown = false;
+document.body.onmousedown = function () {mouseDown = true;}
+document.body.onmouseup = function () {mouseDown = false;}
+
+// Store resolution slider as an object and resolution slider container
+const resolutionSlider = document.querySelector('.slider');
+const sliderContainer = document.querySelector('.slider-container');
+
+// Initialize resfactor (default value per the slider html code) and print value on visible html
+let resFactor = resolutionSlider.value;
+const resText = document.createElement('p');
+
+resText.classList.add('res-text');
+resText.textContent = `${resFactor} x ${resFactor}`;
+sliderContainer.appendChild(resText);
+
+// Establish variable to slider
+console.log(resFactor);
+
+// Function to run everytime slider is adjsuted
+function changeResVal() {
+    resFactor = resolutionSlider.value;
+    
+    const sliderText = document.querySelector('.res-text');
+    sliderText.textContent = `${resFactor} x ${resFactor}`;
+
+    console.log(resFactor);
+}
+
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Initialize Sketch Space
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function initGridBlocks (resFactor) {
 
@@ -37,11 +75,19 @@ function initGridBlocks (resFactor) {
 
     }
 
-// Res Factor Set by Some Other Event (static for now)
-const resFactor = 16;
-
 // Custom requirement always have a resolution of 1000 pixels...!
 initGridBlocks(resFactor);
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Attach Event Listeners
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// Establish global constants that references all sketch blocks, control buttons, and then individual buttons
+const sketchBlocks = document.querySelectorAll('.sketch-block');
+const controlButtons = document.querySelectorAll('button.control-button');
+const resetButton = document.querySelector('button.control-button.reset');
+
 
 // generate callback function
 function changeDim(e) {
@@ -68,16 +114,6 @@ window.addEventListener('resize', changeDim);
 
 // Set hover effect so that div's with the .sketch-block class change color
 // when the mouse hovers over them
-
-// Establish global constants that references all sketch blocks, control buttons, and then individual buttons
-const sketchBlocks = document.querySelectorAll('.sketch-block');
-const controlButtons = document.querySelectorAll('button.control-button');
-const resetButton = document.querySelector('button.control-button.reset');
-
-// Establish a variable to determine if mouse is down or up
-let mouseDown = false;
-document.body.onmousedown = function () {mouseDown = true;}
-document.body.onmouseup = function () {mouseDown = false;}
 
 function dragColor(e) {
     // Add the colored class to the div so to allow the block to be colored black
