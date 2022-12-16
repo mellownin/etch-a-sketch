@@ -69,13 +69,29 @@ div.page-content div.control-panel div.slider-container {
     flex-flow: column wrap;
     align-content: center;
     justify-content: center;
-    width: 250px;
+    width: 100%;
 }
+
+div.page-content div.control-panel div.slider-container input.slider {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+
 
 div.page-content div.control-panel div.slider-container p.slider-text {
     display: flex;
     align-self: center;
     justify-self: center;
+}
+
+div.page-content div.control-panel div.slider-container p.res-text {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    font-size: 12px;
+    color: gray;
 }
 
 
