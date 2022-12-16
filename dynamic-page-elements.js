@@ -24,18 +24,6 @@ sliderContainer.appendChild(resText);
 // Establish variable to slider
 console.log(resFactor);
 
-// Function to run everytime slider is adjsuted
-function changeResVal() {
-    resFactor = resolutionSlider.value;
-    
-    const sliderText = document.querySelector('.res-text');
-    sliderText.textContent = `${resFactor} x ${resFactor}`;
-
-    console.log(resFactor);
-}
-
-
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Initialize Sketch Space
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -45,6 +33,9 @@ function initGridBlocks (resFactor) {
     // Create an object that points to the container div
     const sketchGrid = document.querySelector('div.page-content div.sketch-grid');
     
+    // Remove any children existing in the grid
+    while (sketchGrid.firstChild) {sketchGrid.removeChild(sketchGrid.firstChild);}
+
     // Isolate square dim of sketch area
     const gridDim = window.getComputedStyle(sketchGrid).width;
     const gridDimNum = gridDim.slice(0,gridDim.length-2);
@@ -75,8 +66,16 @@ function initGridBlocks (resFactor) {
 
     }
 
-// Custom requirement always have a resolution of 1000 pixels...!
+// Initialize sketch space with default value upon load
 initGridBlocks(resFactor);
+
+// Function to run everytime slider is adjusted
+function changeResVal() {
+    resFactor = resolutionSlider.value;
+    const sliderText = document.querySelector('.res-text');
+    sliderText.textContent = `${resFactor} x ${resFactor}`;
+    initGridBlocks(resFactor);
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
