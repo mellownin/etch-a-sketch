@@ -1,7 +1,6 @@
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Global Variables & Genearl Behavior Functions (Things that are always running latently) Prior to
-// the first grid initialization
+// Global Variables & General Event Listeners
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Establish a variable to determine if mouse is down or up
@@ -25,9 +24,33 @@ sliderContainer.appendChild(resText);
 console.log(resFactor);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Initialize Sketch Space
+// Sketch Space Functions
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// Callback Functions that Allow for Block Coloring
+// ***************************************************************************************************
+function dragColor(e) {
+    // Add the colored class to the div so to allow the block to be colored black
+    if (mouseDown) {
+        this.classList.add('colored');
+    }
+}
+
+function clickColor(e) {
+    // Add the colored class to the div so to allow the block to be colored black
+    this.classList.add('colored');
+    
+}
+
+// Function to activate when clear grid button is pressed
+// ***************************************************************************************************
+function resetGrid () {
+    const sketchBlocks = document.querySelectorAll('.sketch-block'); 
+    sketchBlocks.forEach(sketchBlock => sketchBlock.classList.remove('colored'));
+}
+
+// Grid initialization / re-intialization function
+// ***************************************************************************************************
 function initGridBlocks (resFactor) {
 
     // Create an object that points to the container div
@@ -43,13 +66,6 @@ function initGridBlocks (resFactor) {
     // Compute the dimension of each block
     const blockDim = gridDimNum/resFactor;
 
-    // May not need this while loop segement...
-    // Because remainders are stored, we get an even num
-    // of grid squares
-
-    // console.log(`Using a grid dim of ${gridDimNum}`);
-    // console.log(`Using a block dim of ${blockDim}`);
-
     // Set dimension of blocks for sketch area (divide dim by resolution)
     const blockDimStyle = `${blockDim}px`;
 
@@ -64,6 +80,10 @@ function initGridBlocks (resFactor) {
         sketchGrid.appendChild(gridBlock);
     }
 
+    // Attach event Listeners to sketch blocks
+    const sketchBlocks = document.querySelectorAll('.sketch-block');
+    sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('mouseenter',dragColor));
+    sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('click',clickColor));
     }
 
 // Initialize sketch space with default value upon load
@@ -77,18 +97,12 @@ function changeResVal() {
     initGridBlocks(resFactor);
 }
 
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Attach Event Listeners
+// General Event Listeners Agnostic of Sketch Area Resolution Change
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Establish global constants that references all sketch blocks, control buttons, and then individual buttons
-const sketchBlocks = document.querySelectorAll('.sketch-block');
-const controlButtons = document.querySelectorAll('button.control-button');
-const resetButton = document.querySelector('button.control-button.reset');
-
-
-// generate callback function
+// Resize sketch area during window resize
+// ***************************************************************************************************
 function changeDim(e) {
      // Get all sketch blocks
      const blocks = document.querySelectorAll('.sketch-block');
@@ -111,29 +125,8 @@ function changeDim(e) {
 // Add event listener to the window...
 window.addEventListener('resize', changeDim);
 
-// Set hover effect so that div's with the .sketch-block class change color
-// when the mouse hovers over them
-
-function dragColor(e) {
-    // Add the colored class to the div so to allow the block to be colored black
-    if (mouseDown) {
-        this.classList.add('colored');
-    }
-}
-
-function clickColor(e) {
-    // Add the colored class to the div so to allow the block to be colored black
-    this.classList.add('colored');
-    
-}
-
-sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('mouseenter',dragColor));
-sketchBlocks.forEach(sketchBlock => sketchBlock.addEventListener('click',clickColor));
-
 // Attach event listener to buttons
-
-// Add one to highlight when hovering over the button
-
+// ***************************************************************************************************
 function buttonHover (e) {
     // Colors button if it is being hovered over
     this.classList.add('hover');
@@ -144,14 +137,6 @@ function revertButton(e) {
     this.classList.remove('hover');
 }
 
+const controlButtons = document.querySelectorAll('button.control-button');
 controlButtons.forEach(controlButton => controlButton.addEventListener('mouseenter',buttonHover));
 controlButtons.forEach(controlButton => controlButton.addEventListener('mouseleave',revertButton));
-
-// Reset Grid Function / Button
-function resetGrid (e) {
-    sketchBlocks.forEach(sketchBlock => sketchBlock.classList.remove('colored'));
-}
-
-resetButton.addEventListener('click',resetGrid);
-
-// Enable user to set resolution (reset grid upon entering resolution)
