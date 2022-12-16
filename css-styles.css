@@ -64,6 +64,13 @@ div.page-content div.control-panel button.control-button.hover {
     transform: scale(1.02);
 }
 
+div.page-content div.control-panel div.slider-container {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
 
 
 div.page-content div.sketch-grid {

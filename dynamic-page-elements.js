@@ -38,7 +38,7 @@ function initGridBlocks (resFactor) {
     }
 
 // Res Factor Set by Some Other Event (static for now)
-const resFactor = 16;
+const resFactor = 100;
 
 // Custom requirement always have a resolution of 1000 pixels...!
 initGridBlocks(resFactor);
@@ -118,3 +118,5 @@ function resetGrid (e) {
 }
 
 resetButton.addEventListener('click',resetGrid);
+
+// Enable user to set resolution (reset grid upon entering resolution)
