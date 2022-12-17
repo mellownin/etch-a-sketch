@@ -20,8 +20,12 @@ resText.classList.add('res-text');
 resText.textContent = `${resFactor} x ${resFactor}`;
 sliderContainer.appendChild(resText);
 
-// Establish variable to slider
-console.log(resFactor);
+// Store color picker as an object
+const colorPicker = document.querySelector('#pen-color-selector');
+
+// Store default pen color value
+let colorVal = colorPicker.value;
+console.log(colorVal);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Sketch Space Functions
@@ -96,6 +100,13 @@ function changeResVal() {
     sliderText.textContent = `${resFactor} x ${resFactor}`;
     initGridBlocks(resFactor);
 }
+
+// Function to run everytime color-picker recieves an input
+function changeColorVal() {
+    colorVal = colorPicker.value;
+    console.log(colorVal);
+}
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // General Event Listeners Agnostic of Sketch Area Resolution Change
