@@ -140,3 +140,4 @@ function revertButton(e) {
 const controlButtons = document.querySelectorAll('button.control-button');
 controlButtons.forEach(controlButton => controlButton.addEventListener('mouseenter',buttonHover));
 controlButtons.forEach(controlButton => controlButton.addEventListener('mouseleave',revertButton));
+
