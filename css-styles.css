@@ -44,6 +44,7 @@ div.page-content div.control-panel {
     border: 1px solid gray;
     align-content: center;
     justify-content: flex-start;
+    gap: 25px;
 }
 
 div.page-content div.control-panel button.control-button {
@@ -51,12 +52,11 @@ div.page-content div.control-panel button.control-button {
     flex-flow: column wrap;
     border: 1px solid gray;
     border-radius: 10px;
-    height: 60px;
+    height: 55px;
     width: 250px;
     align-content: center;
     justify-content: center;
     font: 17px Arial, sans-serif;
-    margin-bottom: 10px;
 }
 
 div.page-content div.control-panel button.control-button.hover {
