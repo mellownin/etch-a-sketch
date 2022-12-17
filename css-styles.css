@@ -64,6 +64,28 @@ div.page-content div.control-panel button.control-button.hover {
     transform: scale(1.02);
 }
 
+div.page-content div.control-panel div.color-picker-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 5px;
+}
+
+#pen-color-text {
+    display: flex;
+    flex-flow: row wrap;
+    align-self: center;
+    justify-self: flex-start;
+}
+
+#pen-color-selector {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+
 div.page-content div.control-panel div.slider-container {
     display: flex;
     flex-flow: column wrap;
