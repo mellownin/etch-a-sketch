@@ -64,6 +64,69 @@ div.page-content div.control-panel button.control-button.hover {
     transform: scale(1.02);
 }
 
+div.flip-switch-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 10px;
+}
+
+div.flip-switch-container p {
+    display: flex;
+    flex-flow: row wrap;
+    align-self: center;
+}
+
+div.flip-switch-container label.switch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+div.flip-switch-container label.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+div.flip-switch-container label.switch span.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 34px;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+span.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    background-color: white;
+    transition: 0.4s;
+}
+
+div.flip-switch-container label.switch input:checked + span.switch-slider {
+    background-color: #2196F3;
+}
+
+input:focus + span.switch-slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + span.switch-slider:before {
+    transform: translateX(46px);
+}
+
 div.page-content div.control-panel div.color-picker-container {
     display: flex;
     flex-flow: column wrap;

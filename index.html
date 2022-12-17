@@ -14,7 +14,20 @@
             <div class = "page-content">
                 <div class = "control-panel">
                     <button onclick = "resetGrid()" class = "control-button reset">Clear Grid</button>
-                    <button class = "control-button">Rainbow Mode</button>
+                    <div class = 'flip-switch-container'>
+                        <label class="switch">
+                            <input type="checkbox" id = "rainbow-mode">
+                            <span class ="switch-slider"></span>
+                        </label>
+                        <p>Rainbow Mode</p>
+                    </div>
+                    <div class = 'flip-switch-container'>
+                        <label class="switch">
+                            <input type="checkbox" id = "eraser-mode">
+                            <span class ="switch-slider"></span>
+                        </label>
+                        <p>Eraser</p>
+                    </div>
                     <div class = 'color-picker-container'>
                         <label for="pen-color" id = 'pen-color-text'>Pen Color</label>
                         <input type="color" id = "pen-color-selector" name = "pen-color" value = "#000000" oninput = "changeColorVal()">
