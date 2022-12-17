@@ -25,7 +25,6 @@ const colorPicker = document.querySelector('#pen-color-selector');
 
 // Store default pen color value
 let colorVal = colorPicker.value;
-console.log(colorVal);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Sketch Space Functions
@@ -36,13 +35,13 @@ console.log(colorVal);
 function dragColor(e) {
     // Add the colored class to the div so to allow the block to be colored black
     if (mouseDown) {
-        this.classList.add('colored');
+        this.style.backgroundColor = `${colorVal}`;
     }
 }
 
 function clickColor(e) {
     // Add the colored class to the div so to allow the block to be colored black
-    this.classList.add('colored');
+    this.style.backgroundColor = `${colorVal}`;
     
 }
 
@@ -50,7 +49,7 @@ function clickColor(e) {
 // ***************************************************************************************************
 function resetGrid () {
     const sketchBlocks = document.querySelectorAll('.sketch-block'); 
-    sketchBlocks.forEach(sketchBlock => sketchBlock.classList.remove('colored'));
+    sketchBlocks.forEach(sketchBlock => sketchBlock.style.backgroundColor = "#FFFFFF");
 }
 
 // Grid initialization / re-intialization function
@@ -104,7 +103,6 @@ function changeResVal() {
 // Function to run everytime color-picker recieves an input
 function changeColorVal() {
     colorVal = colorPicker.value;
-    console.log(colorVal);
 }
 
 
