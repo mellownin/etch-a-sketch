@@ -14,4 +14,8 @@ Project Requirements
 
 Project Source(s) and External Credits
 *********************************************************
+Design inspirited by michalosman and scotty's Odin 
+project submissions
+    o https://michalosman.github.io/etch-a-sketch/
+    o https://bscottnz.github.io/esketch/
 
