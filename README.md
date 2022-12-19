@@ -14,10 +14,11 @@ Project Requirements
 
 Project Source(s) and External Credits
 *********************************************************
-Design inspirited by michalosman and scotty's Odin 
-project submissions
+Design inspirited by michalosman and scotty's odin project submissions
     o https://michalosman.github.io/etch-a-sketch/
     o https://bscottnz.github.io/esketch/
 
 Rainbow color generator is sourced from Programming Bytes
     o https://www.educative.io/answers/how-to-generate-a-random-color-in-javascript
+
+Color scheme produced using coolers
