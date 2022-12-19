@@ -30,34 +30,60 @@ let colorVal = colorPicker.value;
 const rainbowMode = document.querySelector('#rainbow-mode');
 const eraserMode = document.querySelector('#eraser-mode');
 const eraserColor = "#FFFFFF";
+let rainbowPen = "";
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Sketch Space Functions
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// Function to generate random color everytime sketch-space is clicked or dragged on
+// ***************************************************************************************************
+
+function updateRainbow(){
+    let maxVal = 0xFFFFFF; // 16777215
+    let randomNumber = Math.random() * maxVal; 
+    randomNumber = Math.floor(randomNumber);
+    randomNumber = randomNumber.toString(16);
+    let randColor = randomNumber.padStart(6, 0);   
+    rainbowPen = `#${randColor.toUpperCase()}`;
+    console.log(rainbowPen);
+}
+
 // Callback Functions that Allow for Block Coloring
 // ***************************************************************************************************
 function dragColor(e) {
     // Add the colored class to the div so to allow the block to be colored black
     if (mouseDown) {
-        if (!eraserMode.checked) { 
-            this.style.backgroundColor = `${colorVal}`;
+        updateRainbow();
+        let blockColor = "";
+        if (rainbowMode.checked && !eraserMode.checked) {
+            blockColor = `${rainbowPen}`;
+        }
+        else if (eraserMode.checked) {
+            blockColor = `${eraserColor}`;
         }
         else {
-            this.style.backgroundColor = `${eraserColor}`
+            blockColor = `${colorVal}`;
         }
+        this.style.backgroundColor = blockColor;
     }
 }
 
 function clickColor(e) {
     // Add the colored class to the div so to allow the block to be colored black
-    if (!eraserMode.checked) { 
-        this.style.backgroundColor = `${colorVal}`;
+    updateRainbow();
+    let blockColor = "";
+    if (rainbowMode.checked && !eraserMode.checked) {
+        blockColor = `${rainbowPen}`;
+    }
+    else if (eraserMode.checked) {
+        blockColor = `${eraserColor}`;
     }
     else {
-        this.style.backgroundColor = `${eraserColor}`
+        blockColor = `${colorVal}`;
     }
+    this.style.backgroundColor = blockColor;
 }
 
 // Function to activate when clear grid button is pressed
