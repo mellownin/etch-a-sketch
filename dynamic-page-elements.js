@@ -26,6 +26,12 @@ const colorPicker = document.querySelector('#pen-color-selector');
 // Store default pen color value
 let colorVal = colorPicker.value;
 
+// Store rainbow mode and eraser buttons
+const rainbowMode = document.querySelector('#rainbow-mode');
+const eraserMode = document.querySelector('#eraser-mode');
+const eraserColor = "#FFFFFF";
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Sketch Space Functions
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -35,14 +41,23 @@ let colorVal = colorPicker.value;
 function dragColor(e) {
     // Add the colored class to the div so to allow the block to be colored black
     if (mouseDown) {
-        this.style.backgroundColor = `${colorVal}`;
+        if (!eraserMode.checked) { 
+            this.style.backgroundColor = `${colorVal}`;
+        }
+        else {
+            this.style.backgroundColor = `${eraserColor}`
+        }
     }
 }
 
 function clickColor(e) {
     // Add the colored class to the div so to allow the block to be colored black
-    this.style.backgroundColor = `${colorVal}`;
-    
+    if (!eraserMode.checked) { 
+        this.style.backgroundColor = `${colorVal}`;
+    }
+    else {
+        this.style.backgroundColor = `${eraserColor}`
+    }
 }
 
 // Function to activate when clear grid button is pressed
