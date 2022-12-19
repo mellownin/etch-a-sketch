@@ -32,7 +32,12 @@
                         <label for="pen-color" id = 'pen-color-text'>Pen Color</label>
                         <input type="color" id = "pen-color-selector" name = "pen-color" value = "#000000" oninput = "changeColorVal()">
                     </div>
-                    <div class = 'slider-container'>
+                    <div class = 'slider-container' id = 'pen-slider-container'>
+                        <p class = "slider-text">Pen Shade</p>
+                        <input type="range" min = "10" max = "100" value = "100" oninput = "changePenShade()" class = "slider" id = "penShade">
+                        <!-- <p class = "res-text">Set Resolution</p> -->
+                    </div>
+                    <div class = 'slider-container' id = 'grid-slider-container'>
                         <p class = "slider-text">Grid Resolution</p>
                         <input type="range" min = "1" max = "100" value = "16" oninput = "changeResVal()" class = "slider" id = "gridRes">
                         <!-- <p class = "res-text">Set Resolution</p> -->

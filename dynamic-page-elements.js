@@ -9,8 +9,8 @@ document.body.onmousedown = function () {mouseDown = true;}
 document.body.onmouseup = function () {mouseDown = false;}
 
 // Store resolution slider as an object and resolution slider container
-const resolutionSlider = document.querySelector('.slider');
-const sliderContainer = document.querySelector('.slider-container');
+const resolutionSlider = document.querySelector('#gridRes');
+const resContainer = document.querySelector('#grid-slider-container');
 
 // Initialize resfactor (default value per the slider html code) and print value on visible html
 let resFactor = resolutionSlider.value;
@@ -18,7 +18,18 @@ const resText = document.createElement('p');
 
 resText.classList.add('res-text');
 resText.textContent = `${resFactor} x ${resFactor}`;
-sliderContainer.appendChild(resText);
+resContainer.appendChild(resText);
+
+// Store pen slider as an object and pen slider container
+const penSlider = document.querySelector('#penShade');
+const shadeContainer = document.querySelector('#pen-slider-container');
+
+// Initialize shade factor (default value per the slider html code) and print value on visible html
+let shadeFactor = penSlider.value;
+const shadeText = document.createElement('p');
+shadeText.classList.add('shade-text');
+shadeText.textContent = `${shadeFactor}%`;
+shadeContainer.appendChild(shadeText);
 
 // Store color picker as an object
 const colorPicker = document.querySelector('#pen-color-selector');
@@ -47,7 +58,6 @@ function updateRainbow(){
     randomNumber = randomNumber.toString(16);
     let randColor = randomNumber.padStart(6, 0);   
     rainbowPen = `#${randColor.toUpperCase()}`;
-    console.log(rainbowPen);
 }
 
 // Callback Functions that Allow for Block Coloring
@@ -67,6 +77,7 @@ function dragColor(e) {
             blockColor = `${colorVal}`;
         }
         this.style.backgroundColor = blockColor;
+        this.style.opacity = `${shadeFactor/100}`;
     }
 }
 
@@ -84,6 +95,7 @@ function clickColor(e) {
         blockColor = `${colorVal}`;
     }
     this.style.backgroundColor = blockColor;
+    this.style.opacity = `${shadeFactor/100}`;
 }
 
 // Function to activate when clear grid button is pressed
@@ -146,6 +158,12 @@ function changeColorVal() {
     colorVal = colorPicker.value;
 }
 
+// Function to run everytime pen-shader recieves an input
+function changePenShade() {
+    shadeFactor = penSlider.value;
+    const shadeText = document.querySelector('.shade-text');
+    shadeText.textContent = `${shadeFactor}%`;
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // General Event Listeners Agnostic of Sketch Area Resolution Change

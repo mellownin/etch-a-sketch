@@ -171,14 +171,13 @@ div.page-content div.control-panel div.slider-container p.slider-text {
     justify-self: center;
 }
 
-div.page-content div.control-panel div.slider-container p.res-text {
+div.page-content div.control-panel div.slider-container p.res-text, p.shade-text {
     display: flex;
     align-self: center;
     justify-self: center;
     font-size: 12px;
     color: gray;
 }
-
 
 div.page-content div.sketch-grid {
     display: flex;
