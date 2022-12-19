@@ -18,3 +18,6 @@ Design inspirited by michalosman and scotty's Odin
 project submissions
     o https://michalosman.github.io/etch-a-sketch/
     o https://bscottnz.github.io/esketch/
+
+Rainbow color generator is sourced from Adam Colde
+    o http://blog.adamcole.ca/2011/11/simple-javascript-rainbow-color.html
