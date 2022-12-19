@@ -43,6 +43,7 @@ div.page-content div.control-panel {
     flex-flow: column wrap;
     align-content: center;
     justify-content: space-evenly;
+    gap: 15px;
 }
 
 div.page-content div.control-panel button.control-button {
@@ -147,6 +148,7 @@ div.page-content div.control-panel div.color-picker-container {
     display: flex;
     flex-flow: row wrap;
     width: 100%;
+    border: 1px solid rgba(214, 214, 214, 0.904);
 }
 
 
@@ -164,7 +166,6 @@ div.page-content div.control-panel div.slider-container input.slider {
     justify-content: center;
     width: 100%;
 }
-
 
 div.page-content div.control-panel div.slider-container p.slider-text {
     display: flex;
@@ -186,7 +187,7 @@ div.page-content div.sketch-grid {
     height: 0px;
     width: 46%;
     padding-bottom: 46%;
-    border: 1px solid gray;
+    box-shadow: 0px 0px 15px rgba(105, 105, 105, 0.9);
 }
 
 div.page-footer {
