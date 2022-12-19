@@ -20,17 +20,17 @@ div.page-container {
 
 div.page-header {
     display: flex;
-    height: 50px;
+    min-height: 60px;
     align-items: center;
     justify-content: center;
-    border: 2px solid red;
+    background-color: rgb(30, 85, 92);
+    color: rgb(244,216,205);
     margin-bottom: auto;
 }
 
 div.page-content {
     display: flex;
     flex-flow: wrap-reverse;
-    border: 2px solid blue;
     margin: 0 50px;
     justify-content: center;
     justify-self: center;
@@ -41,16 +41,14 @@ div.page-content {
 div.page-content div.control-panel {
     display: flex;
     flex-flow: column wrap;
-    border: 1px solid gray;
     align-content: center;
-    justify-content: flex-start;
-    gap: 25px;
+    justify-content: space-evenly;
 }
 
 div.page-content div.control-panel button.control-button {
     display: flex;
     flex-flow: column wrap;
-    border: 1px solid gray;
+    border: 1px solid rgba(214, 214, 214, 0.904);
     border-radius: 10px;
     height: 55px;
     width: 250px;
@@ -60,8 +58,11 @@ div.page-content div.control-panel button.control-button {
 }
 
 div.page-content div.control-panel button.control-button.hover {
-    background-color: aqua;
+    background-color: rgb(111, 26, 7);
+    color: rgb(244,216,205);
     transform: scale(1.02);
+    font-weight: bolder;
+    transition: 0.2s;
 }
 
 div.flip-switch-container {
@@ -116,11 +117,11 @@ span.switch-slider:before {
 }
 
 div.flip-switch-container label.switch input:checked + span.switch-slider {
-    background-color: #2196F3;
+    background-color: rgb(162, 103, 105);
 }
 
 input:focus + span.switch-slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px rgb(162, 103, 105);
 }
 
 input:checked + span.switch-slider:before {
@@ -194,7 +195,8 @@ div.page-footer {
     justify-content: center;
     align-items: center;
     min-height: 50px;
-    border: 2px solid green;
+    background-color: rgb(30, 85, 92);
+    color: rgb(244,216,205);
 }
 
 
